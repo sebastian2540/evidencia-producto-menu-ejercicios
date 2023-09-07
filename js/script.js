@@ -6,7 +6,7 @@ function confirmarEjercicio() {
 
     switch (respuesta) {
         case "SI":
-            console.log('Resolviendo ejercicio seleccionado')
+            console.log('Resolviendo ejercicio ' + opcion)
             break;
 
         case "NO":
@@ -17,8 +17,6 @@ function confirmarEjercicio() {
             console.log("Opción no válida. Intente nuevamente.");
             break;
     }
-
-
 
     // if (respuesta === 'SI') {
     //     console.log('Resolviendo ejercicio seleccionado')
@@ -111,7 +109,7 @@ let ejercicioSorpresa = 0
 let repetir = true
 while (repetir) {
 
-    let opcion = Number(prompt(
+    var opcion = Number(prompt(
         "¡Bienvenido " + nombre + "!😄😄 \n" +
         "Seleccione un ejercicio\n" +
         "1. Contador de Números Pares e Impares\n" +
@@ -139,7 +137,7 @@ while (repetir) {
 
             var numerosParesImpares = Number(prompt('Ingrese un número N'))
 
-            if (isNaN(numerosParesImpares)) { // Verificar si el valor ingresado es número válido
+            if (isNaN(numerosParesImpares)) { //Verificar si el valor ingresado es número válido
                 console.log('Ingrese un número válido.!')
             } else {
                 console.log()
@@ -471,6 +469,7 @@ while (repetir) {
     }
 }
 
+//Cantidad de ejecuciones de cada ejercicio
 console.log('Cantidad Ejecución Ejercicio 1: ' + ejercicioUno)
 console.log('Cantidad Ejecución Ejercicio 2: ' + ejercicioDos)
 console.log('Cantidad Ejecución Ejercicio 3: ' + ejercicioTres)
@@ -490,13 +489,76 @@ let resultados = ejercicioUno + ejercicioDos + ejercicioTres + ejercicioCuatro +
 
 console.log('Total de Ejecuciones: ' + resultados)
 
-// for (const ejercicio in opcion) {
-//     totalEjecuciones += ejercicio[opcion];
-//     let ejercicioMasSeleccionado = 0
+//Ejercicio mas seleccionado
+let mayor
 
-//     if (!ejercicioMasSeleccionado || ejercicio[opcion] < ejercicioMasSeleccionado[opcion]) {
-//         ejercicioMasSeleccionado = opcion
-//     }
+if (ejercicioUno > ejercicioDos && ejercicioUno > ejercicioTres && ejercicioUno > ejercicioCuatro && ejercicioUno > ejercicioQuinto && ejercicioUno > ejercicioSexto && ejercicioUno > ejercicioSeptimo && ejercicioUno > ejercicioOctavo && ejercicioUno > ejercicioNoveno && ejercicioUno > ejercicioDiez && ejercicioUno > ejercicioOnce && ejercicioUno > ejercicioDoce && ejercicioUno > ejercicioTrece && ejercicioUno > ejercicioSorpresa) {
+    mayor = ejercicioUno;
+} else if (ejercicioDos > ejercicioTres && ejercicioDos > ejercicioCuatro && ejercicioDos > ejercicioQuinto && ejercicioDos > ejercicioSexto && ejercicioDos > ejercicioSeptimo && ejercicioDos > ejercicioOctavo && ejercicioDos > ejercicioNoveno && ejercicioDos > ejercicioDiez && ejercicioDos > ejercicioOnce && ejercicioDos > ejercicioDoce && ejercicioDos > ejercicioTrece && ejercicioDos > ejercicioSorpresa) {
+    mayor = ejercicioDos;
+} else if (ejercicioTres > ejercicioCuatro && ejercicioTres > ejercicioQuinto && ejercicioTres > ejercicioSexto && ejercicioTres > ejercicioSeptimo && ejercicioTres > ejercicioOctavo && ejercicioTres > ejercicioNoveno && ejercicioTres > ejercicioDiez && ejercicioTres > ejercicioOnce && ejercicioTres > ejercicioDoce && ejercicioTres > ejercicioTrece && ejercicioTres > ejercicioSorpresa) {
+    mayor = ejercicioTres;
+} else if (ejercicioCuatro > ejercicioQuinto && ejercicioCuatro > ejercicioSexto && ejercicioCuatro > ejercicioSeptimo && ejercicioCuatro > ejercicioOctavo && ejercicioCuatro > ejercicioNoveno && ejercicioCuatro > ejercicioDiez && ejercicioCuatro > ejercicioOnce && ejercicioCuatro > ejercicioDoce && ejercicioCuatro > ejercicioTrece && ejercicioCuatro > ejercicioSorpresa) {
+    mayor = ejercicioCuatro;
+} else if (ejercicioQuinto > ejercicioSexto && ejercicioQuinto > ejercicioSeptimo && ejercicioQuinto > ejercicioOctavo && ejercicioQuinto > ejercicioNoveno && ejercicioQuinto > ejercicioDiez && ejercicioQuinto > ejercicioOnce && ejercicioQuinto > ejercicioDoce && ejercicioQuinto > ejercicioTrece && ejercicioQuinto > ejercicioSorpresa) {
+    mayor = ejercicioQuinto;
+} else if (ejercicioSexto > ejercicioSeptimo && ejercicioSexto > ejercicioOctavo && ejercicioSexto > ejercicioNoveno && ejercicioSexto > ejercicioDiez && ejercicioSexto > ejercicioOnce && ejercicioSexto > ejercicioDoce && ejercicioSexto > ejercicioTrece && ejercicioSexto > ejercicioSorpresa) {
+    mayor = ejercicioSexto;
+} else if (ejercicioSeptimo > ejercicioOctavo && ejercicioSeptimo > ejercicioNoveno && ejercicioSeptimo > ejercicioDiez && ejercicioSeptimo > ejercicioOnce && ejercicioSeptimo > ejercicioDoce && ejercicioSeptimo > ejercicioTrece && ejercicioSeptimo > ejercicioSorpresa) {
+    mayor = ejercicioSeptimo;
+} else if (ejercicioOctavo > ejercicioNoveno && ejercicioOctavo > ejercicioDiez && ejercicioOctavo > ejercicioOnce && ejercicioOctavo > ejercicioDoce && ejercicioOctavo > ejercicioTrece && ejercicioOctavo > ejercicioSorpresa) {
+    mayor = ejercicioOctavo;
+} else if (ejercicioNoveno > ejercicioDiez && ejercicioNoveno > ejercicioOnce && ejercicioNoveno > ejercicioDoce && ejercicioNoveno > ejercicioTrece && ejercicioNoveno > ejercicioSorpresa) {
+    mayor = ejercicioNoveno;
+} else if (ejercicioDiez > ejercicioOnce && ejercicioDiez > ejercicioDoce && ejercicioDiez > ejercicioTrece && ejercicioDiez > ejercicioSorpresa) {
+    mayor = ejercicioDiez;
+} else if (ejercicioOnce > ejercicioDoce && ejercicioOnce > ejercicioTrece && ejercicioOnce > ejercicioSorpresa) {
+    mayor = ejercicioOnce;
+} else if (ejercicioDoce > ejercicioTrece && ejercicioDoce > ejercicioSorpresa) {
+    mayor = ejercicioDoce;
+} else if (ejercicioTrece > ejercicioSorpresa) {
+    mayor = ejercicioTrece;
+} else {
+    mayor = ejercicioSorpresa;
+}
 
-//     console.log('Ejercicio mas seleccionado es: ' + ejercicioMasSeleccionado)
-// }
+//Ejercicio menos seleccionado
+let menor
+
+if (ejercicioUno < ejercicioDos && ejercicioUno < ejercicioTres && ejercicioUno < ejercicioCuatro && ejercicioUno < ejercicioQuinto && ejercicioUno < ejercicioSexto && ejercicioUno < ejercicioSeptimo && ejercicioUno < ejercicioOctavo && ejercicioUno < ejercicioNoveno && ejercicioUno < ejercicioDiez && ejercicioUno < ejercicioOnce && ejercicioUno < ejercicioDoce && ejercicioUno < ejercicioTrece && ejercicioUno < ejercicioSorpresa) {
+    menor = ejercicioUno;
+} else if (ejercicioDos < ejercicioTres && ejercicioDos < ejercicioCuatro && ejercicioDos < ejercicioQuinto && ejercicioDos < ejercicioSexto && ejercicioDos < ejercicioSeptimo && ejercicioDos < ejercicioOctavo && ejercicioDos < ejercicioNoveno && ejercicioDos < ejercicioDiez && ejercicioDos < ejercicioOnce && ejercicioDos < ejercicioDoce && ejercicioDos < ejercicioTrece && ejercicioDos < ejercicioSorpresa) {
+    menor = ejercicioDos;
+} else if (ejercicioTres < ejercicioCuatro && ejercicioTres < ejercicioQuinto && ejercicioTres < ejercicioSexto && ejercicioTres < ejercicioSeptimo && ejercicioTres < ejercicioOctavo && ejercicioTres < ejercicioNoveno && ejercicioTres < ejercicioDiez && ejercicioTres < ejercicioOnce && ejercicioTres < ejercicioDoce && ejercicioTres < ejercicioTrece && ejercicioTres < ejercicioSorpresa) {
+    menor = ejercicioTres;
+} else if (ejercicioCuatro < ejercicioQuinto && ejercicioCuatro < ejercicioSexto && ejercicioCuatro < ejercicioSeptimo && ejercicioCuatro < ejercicioOctavo && ejercicioCuatro < ejercicioNoveno && ejercicioCuatro < ejercicioDiez && ejercicioCuatro < ejercicioOnce && ejercicioCuatro < ejercicioDoce && ejercicioCuatro < ejercicioTrece && ejercicioCuatro < ejercicioSorpresa) {
+    menor = ejercicioCuatro;
+} else if (ejercicioQuinto < ejercicioSexto && ejercicioQuinto < ejercicioSeptimo && ejercicioQuinto < ejercicioOctavo && ejercicioQuinto < ejercicioNoveno && ejercicioQuinto < ejercicioDiez && ejercicioQuinto < ejercicioOnce && ejercicioQuinto < ejercicioDoce && ejercicioQuinto < ejercicioTrece && ejercicioQuinto < ejercicioSorpresa) {
+    menor = ejercicioQuinto;
+} else if (ejercicioSexto < ejercicioSeptimo && ejercicioSexto < ejercicioOctavo && ejercicioSexto < ejercicioNoveno && ejercicioSexto < ejercicioDiez && ejercicioSexto < ejercicioOnce && ejercicioSexto < ejercicioDoce && ejercicioSexto < ejercicioTrece && ejercicioSexto < ejercicioSorpresa) {
+    menor = ejercicioSexto;
+} else if (ejercicioSeptimo < ejercicioOctavo && ejercicioSeptimo < ejercicioNoveno && ejercicioSeptimo < ejercicioDiez && ejercicioSeptimo < ejercicioOnce && ejercicioSeptimo < ejercicioDoce && ejercicioSeptimo < ejercicioTrece && ejercicioSeptimo < ejercicioSorpresa) {
+    menor = ejercicioSeptimo;
+} else if (ejercicioOctavo < ejercicioNoveno && ejercicioOctavo < ejercicioDiez && ejercicioOctavo < ejercicioOnce && ejercicioOctavo < ejercicioDoce && ejercicioOctavo < ejercicioTrece && ejercicioOctavo < ejercicioSorpresa) {
+    menor = ejercicioOctavo;
+} else if (ejercicioNoveno < ejercicioDiez && ejercicioNoveno < ejercicioOnce && ejercicioNoveno < ejercicioDoce && ejercicioNoveno < ejercicioTrece && ejercicioNoveno < ejercicioSorpresa) {
+    menor = ejercicioNoveno;
+} else if (ejercicioDiez < ejercicioOnce && ejercicioDiez < ejercicioDoce && ejercicioDiez < ejercicioTrece && ejercicioDiez < ejercicioSorpresa) {
+    menor = ejercicioDiez;
+} else if (ejercicioOnce < ejercicioDoce && ejercicioOnce < ejercicioTrece && ejercicioOnce < ejercicioSorpresa) {
+    menor = ejercicioOnce;
+} else if (ejercicioDoce < ejercicioTrece && ejercicioDoce < ejercicioSorpresa) {
+    menor = ejercicioDoce;
+} else if (ejercicioTrece < ejercicioSorpresa) {
+    menor = ejercicioTrece;
+} else {
+    menor = ejercicioSorpresa;
+}
+
+//Ejercicio mas seleccionado
+console.log('Mayor: ' + mayor);
+console.log('Ejercicio ' + opcion)
+
+//Ejercicio menos seleccionado
+console.log('Menor: ' + menor);
+console.log('Ejercicio ' + opcion)
