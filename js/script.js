@@ -1,17 +1,97 @@
 console.log('Conexión Existosa')
 
+//Función para confirmar el ejercicio
 function confirmarEjercicio() {
     let respuesta = prompt('¿Desean ejecutar el ejercicio? SI/NO').toUpperCase()
 
-    if (respuesta === 'SI') {
-        console.log('Resolviendo ejercicio seleccionado')
+    switch (respuesta) {
+        case "SI":
+            console.log('Resolviendo ejercicio seleccionado')
+            break;
+
+        case "NO":
+            console.log('Ejercicio no se ejecuto')
+            break;
+
+        default:
+            console.log("Opción no válida. Intente nuevamente.");
+            break;
+    }
+
+
+
+    // if (respuesta === 'SI') {
+    //     console.log('Resolviendo ejercicio seleccionado')
+    // } else {
+    //     console.log('Ejercicio no se ejecuto')
+    // }
+}
+
+//Ejercicio 9. Verificador de Palíndromos
+function Palindromo(palabra) {
+    const longitud = palabra.length
+    for (let i = 0; i < longitud / 2; i++) {
+        if (palabra[i] !== palabra[longitud - 1 - i]) {
+            return false
+        }
+    }
+    return true
+}
+
+//11. Contador de Vocales y Consonante
+//Función para contar las vocales en una cadena
+function contarVocales(cadena) {
+    const vocales = "aeiouAEIOU"
+    let contador = 0
+
+    for (let i = 0; i < cadena.length; i++) {
+        if (vocales.indexOf(cadena[i]) !== -1) { //El método indexOf() devuelve el índice, dentro del objeto String que realiza la llamada, de la primera ocurrencia del valor especificado, comenzando la búsqueda desde indiceDesde; o -1 si no se encuentra dicho valor.
+            contador++
+        }
+    }
+    return contador
+}
+
+//Función para contar las consonantes en una cadena
+function contarConsonantes(cadena) {
+    const consonantes = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ"
+    let contador = 0
+
+    for (let i = 0; i < cadena.length; i++) {
+        if (consonantes.indexOf(cadena[i]) !== -1) {
+            contador++
+        }
+    }
+    return contador
+}
+
+//13. Juego de Piedra, Papel o Tijeras
+//Función para elejir pieda, papel o tijeras
+function eleccion() {
+    const opciones = ["piedra", "papel", "tijeras"]
+    const indiceAleatorio = Math.floor(Math.random() * 3)
+    return opciones[indiceAleatorio]
+}
+
+//Funcion para saber el ganador del juego
+function ganador(eleccionUsuario, eleccionComputadora) {
+    if (eleccionUsuario === eleccionComputadora) {
+        return "Empate"
+    } else if (
+        (eleccionUsuario === "piedra" && eleccionComputadora === "tijeras") ||
+        (eleccionUsuario === "papel" && eleccionComputadora === "piedra") ||
+        (eleccionUsuario === "tijeras" && eleccionComputadora === "papel")) {
+
+        return "Usuario"
     } else {
-        console.log('Ejercicio no se ejecuto')
+        return "Computadora"
     }
 }
 
+//Nombre del usuario
 let nombre = prompt('Cual es tu nombre')
 
+//Contador de Ejercicios
 let ejercicioUno = 0
 let ejercicioDos = 0
 let ejercicioTres = 0
@@ -19,10 +99,17 @@ let ejercicioCuatro = 0
 let ejercicioQuinto = 0
 let ejercicioSexto = 0
 let ejercicioSeptimo = 0
+let ejercicioOctavo = 0
+let ejercicioNoveno = 0
+let ejercicioDiez = 0
+let ejercicioOnce = 0
+let ejercicioDoce = 0
+let ejercicioTrece = 0
+let ejercicioSorpresa = 0
 
+//Contador
 let repetir = true
 while (repetir) {
-
 
     let opcion = Number(prompt(
         "¡Bienvenido " + nombre + "!😄😄 \n" +
@@ -40,7 +127,8 @@ while (repetir) {
         "11. Contador de Vocales y Consonante\n" +
         "12. Calculadora de Potencia\n" +
         "13. Juego de Piedra, Papel o Tijeras\n" +
-        "14. Cerrar o Finalizar"
+        "14. Ejercicio Sorpresa\n" +
+        "15. Cerrar o Finalizar"
     ))
 
     switch (opcion) {
@@ -211,8 +299,8 @@ while (repetir) {
                     }
                     numeroActual++
                 }
-                console.log('La suma de los primeros ' + numeroN + ' números primos es: ' +  new Intl.NumberFormat('es-ES').format(suma))
- 
+                console.log('La suma de los primeros ' + numeroN + ' números primos es: ' + new Intl.NumberFormat('es-ES').format(suma))
+
             } else {
                 console.log('Ingrese un valor válido para N')
             }
@@ -220,17 +308,165 @@ while (repetir) {
             break;
 
         case 8:
+            confirmarEjercicio()
+
+            alert('Secuencia de Fibonacci: Crea un programa que genere la secuencia de Fibonacci hasta un término dado por el usuario.')
+
+            var numeroFibonacci = Number(prompt('Ingrese un número'))
+
+            if (isNaN(numeroFibonacci) || numeroFibonacci <= 0) {
+                console.log('Ingrese un número válido y mayor que 0.')
+            } else {
+                let fibonacci = [0, 1]
+
+                for (let f = 2; f < numeroFibonacci; f++) {
+                    const calculoFibonacci = fibonacci[f - 1] + fibonacci[f - 2]
+                    fibonacci.push(calculoFibonacci) // El método push() añade uno o más elementos al final de un array y devuelve la nueva longitud del array.
+                }
+
+                console.log('Los primeros ' + numeroFibonacci + ' numero de la secuencia de Fibonacci son:')
+                console.log(fibonacci.join(', ')) //El método join() une todos los elementos de una matriz (o un objeto similar a una matriz) en una cadena y devuelve esta cadena.
+            }
+            ejercicioOctavo++
             break;
 
         case 9:
+            confirmarEjercicio()
+
+            alert('Verificador de Palíndromos: Desarrolla un programa que determine si una palabra ingresada por el usuario es un palíndromo')
+
+            const palabra = prompt('Ingrese una palabra').toLowerCase()// El método toLowerCase() devuelve el valor en minúsculas de la cadena que realiza la llamada.
+
+            if (Palindromo(palabra)) {
+                console.log(palabra + ' es un palíndromo')
+            } else {
+                console.log(palabra + ' no es un palíndromo')
+            }
+            ejercicioNoveno++
             break;
 
         case 10:
+            confirmarEjercicio()
+
+            alert('Convertidor de Temperatura: Escribe un programa que convierta temperaturas entre grados Celsius y Fahrenheit, permitiendo al usuario elegir la dirección de la conversión (de Celsius a Fahrenheit o de Fahrenheit a Celsius).')
+
+            const convTemperatura = prompt('¿Desea convertir de Celsius a Fahrenheit (C a F) o de Fahrenheit a Celsius (F a C)?').toUpperCase()
+
+            if (convTemperatura === "C A F") { //Conversión de Celsius a Fahrenheit
+                const celsius = prompt('Ingrese la temperatura en grados Celsius')
+                if (!isNaN(celsius)) {
+                    const fahrenheit = (celsius * 9 / 5) + 32
+                    console.log(celsius + '° Celcius son equivalente a ' + fahrenheit + '° Fahrenheit')
+                } else {
+                    console.log('Ingrese una temperatura válida')
+                }
+            } else if (convTemperatura === "F A C") {
+                const fahrenheit = prompt('Ingrese la temperatura en grados Fahrenheit')
+                if (!isNaN(fahrenheit)) {
+                    const celsius = (fahrenheit - 32) * 5 / 9
+                    console.log(fahrenheit + '° Fahrenheit son equivalentes a ' + celsius + '° Celcius')
+                } else {
+                    console.log('Ingrese una temperatura válida')
+                }
+            } else {
+                console.log('Conversión no válida. Por favor, ingrese C A F o F A C')
+            }
+            ejercicioDiez++
+            break;
+
+        case 11:
+            confirmarEjercicio()
+
+            alert('Contador de Vocales y Consonantes: Crea un programa que cuente la cantidad de vocales y consonantes en una frase ingresada por el usuario.')
+
+            const frase = prompt('Ingrese una frase')
+            const cantidadVocales = contarVocales(frase)
+            const cantidadConsonantes = contarConsonantes(frase)
+
+            console.log('La frase ' + frase + ' tiene ' + cantidadVocales + ' vocales y ' + cantidadConsonantes + ' consonantes')
+
+            ejercicioOnce++
+            break;
+
+        case 12:
+            confirmarEjercicio()
+
+            alert('Calculadora de Potencia: Desarrolla un programa que calcule el resultado de elevar un número a una potencia dada por el usuario.')
+
+            const base = Number(prompt('Ingrese un número para calcular la potencia'))
+            const potencia = Number(prompt('Ingrese la potencia a la que desea elevar el número'))
+
+            const resultado = Math.pow(base, potencia)
+            console.log(base + ' elevado a la potencia ' + potencia + ' es igual a ' + new Intl.NumberFormat('es-ES').format(resultado))
+
+            ejercicioDoce++
+            break;
+
+        case 13:
+            confirmarEjercicio()
+
+            alert('Juego de Piedra, Papel o Tijeras: Crea un juego en el que el usuario juegue contra la computadora eligiendo entre piedra, papel o tijeras, y el programa determine al ganador según las reglas del juego.')
+
+            const eleccionUsuario = prompt('Elija entre piedra, papel o tijeras').toLowerCase()
+            console.log('El usuario elegio: ' + eleccionUsuario)
+
+            if (eleccionUsuario === "piedra" || eleccionUsuario === "papel" || eleccionUsuario === "tijeras") {
+                const eleccionMaq = eleccion()
+                console.log('La computador elegio: ' + eleccionMaq)
+
+                const resultado = ganador(eleccionUsuario, eleccionMaq)
+                console.log('El ganador es: ' + resultado)
+            } else {
+                console.log('Elección no válida. Por favor, elija entre piedra, papel o tijeras.')
+            }
+
+            ejercicioTrece++
+            break;
+
+        case 14:
+            confirmarEjercicio()
+
+            alert('Conversión de Números Romanos: Desarrolla un programa que convierta un número romano (por ejemplo, "XIV")ingresado por el usuario en su equivalente numérico. Los números romanos se forman utilizando las letras I, V, X, L, C, D y M, y siguen ciertas reglas de combinación.')
+
+            const valoresRomanos = {
+                'I': 1,
+                'V': 5,
+                'X': 10,
+                'L': 50,
+                'C': 100,
+                'D': 500,
+                'M': 1000
+            }
+
+            var numeroRomano = prompt('Ingrese un número romano\n Letras\n I - V - X - L - C - D - M').toUpperCase()
+            //  
+
+            let resultadoR = 0
+            let valor = 0
+
+            for (let r = numeroRomano.length - 1; r >= 0; r--) {
+                const valorActual = valoresRomanos[numeroRomano[r]]
+
+                if (valorActual >= valor) {
+                    resultadoR += valorActual
+                } else {
+                    resultadoR -= valorActual
+                }
+
+                valor = valorActual
+            }
+
+            console.log('El numero romano ' + numeroRomano + ' es equivalente a ' + resultadoR + ' en números arábigo')
+            ejercicioSorpresa++
+            break;
+
+        case 15:
+            repetir = false
+            console.log('Saliendo aplicación')
             break;
 
         default:
-            repetir = false
-            console.log('Saliendo aplicación')
+            console.log('Opción invalida, intenta nuevamente')
             break;
     }
 }
@@ -242,3 +478,25 @@ console.log('Cantidad Ejecución Ejercicio 4: ' + ejercicioCuatro)
 console.log('Cantidad Ejecución Ejercicio 5: ' + ejercicioQuinto)
 console.log('Cantidad Ejecución Ejercicio 6: ' + ejercicioSexto)
 console.log('Cantidad Ejecución Ejercicio 7: ' + ejercicioSeptimo)
+console.log('Cantidad Ejecución Ejercicio 8: ' + ejercicioOctavo)
+console.log('Cantidad Ejecución Ejercicio 9: ' + ejercicioNoveno)
+console.log('Cantidad Ejecución Ejercicio 10: ' + ejercicioDiez)
+console.log('Cantidad Ejecución Ejercicio 11: ' + ejercicioOnce)
+console.log('Cantidad Ejecución Ejercicio 12: ' + ejercicioDoce)
+console.log('Cantidad Ejecución Ejercicio 13: ' + ejercicioTrece)
+console.log('Cantidad Ejecución Ejercicio 14: ' + ejercicioSorpresa)
+
+let resultados = ejercicioUno + ejercicioDos + ejercicioTres + ejercicioCuatro + ejercicioQuinto + ejercicioSexto + ejercicioSeptimo + ejercicioOctavo + ejercicioNoveno + ejercicioDiez + ejercicioOnce + ejercicioDoce + ejercicioTrece + ejercicioSorpresa
+
+console.log('Total de Ejecuciones: ' + resultados)
+
+// for (const ejercicio in opcion) {
+//     totalEjecuciones += ejercicio[opcion];
+//     let ejercicioMasSeleccionado = 0
+
+//     if (!ejercicioMasSeleccionado || ejercicio[opcion] < ejercicioMasSeleccionado[opcion]) {
+//         ejercicioMasSeleccionado = opcion
+//     }
+
+//     console.log('Ejercicio mas seleccionado es: ' + ejercicioMasSeleccionado)
+// }
