@@ -17,12 +17,6 @@ function confirmarEjercicio() {
             console.log("Opción no válida. Intente nuevamente.");
             break;
     }
-
-    // if (respuesta === 'SI') {
-    //     console.log('Resolviendo ejercicio seleccionado')
-    // } else {
-    //     console.log('Ejercicio no se ejecuto')
-    // }
 }
 
 //Ejercicio 9. Verificador de Palíndromos
@@ -87,7 +81,7 @@ function ganador(eleccionUsuario, eleccionComputadora) {
 }
 
 //Nombre del usuario
-let nombre = prompt('Cual es tu nombre')
+let nombre = prompt('¿Cual es tu nombre?')
 
 //Contador de Ejercicios
 let ejercicioUno = 0
@@ -459,8 +453,8 @@ while (repetir) {
             break;
 
         case 15:
-            repetir = false
             console.log('Saliendo aplicación')
+            repetir = false
             break;
 
         default:
@@ -484,6 +478,7 @@ console.log('Cantidad Ejecución Ejercicio 11: ' + ejercicioOnce)
 console.log('Cantidad Ejecución Ejercicio 12: ' + ejercicioDoce)
 console.log('Cantidad Ejecución Ejercicio 13: ' + ejercicioTrece)
 console.log('Cantidad Ejecución Ejercicio 14: ' + ejercicioSorpresa)
+
 
 let resultados = ejercicioUno + ejercicioDos + ejercicioTres + ejercicioCuatro + ejercicioQuinto + ejercicioSexto + ejercicioSeptimo + ejercicioOctavo + ejercicioNoveno + ejercicioDiez + ejercicioOnce + ejercicioDoce + ejercicioTrece + ejercicioSorpresa
 
@@ -555,10 +550,9 @@ if (ejercicioUno < ejercicioDos && ejercicioUno < ejercicioTres && ejercicioUno 
     menor = ejercicioSorpresa;
 }
 
+
 //Ejercicio mas seleccionado
 console.log('Mayor: ' + mayor);
-console.log('Ejercicio ' + opcion)
 
 //Ejercicio menos seleccionado
 console.log('Menor: ' + menor);
-console.log('Ejercicio ' + opcion)
